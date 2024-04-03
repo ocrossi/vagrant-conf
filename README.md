@@ -3,12 +3,19 @@
 Vagrant and VirtualBox installed
 
 A directory ~/vagrantShared 
+populated with 1 password file and one pubkey to setup ssh connection without vagrant
+
+can ssh $username@127.0.0.1 -p 2222
 
 ## next steps
-setup.sh should handle every install for all users
-then we should have a startup script that execs on 1st entry to setup user and password
+a way to input username and password, secure and efficient
+add encryption to pass before giving it to chpass
+and we good
+
+remove linked clone if all good, should just be for tests purposes
+add delete part
+
 
 ## goals
-nvim fully installed & confed
 ssh key of host should be added to authorized_keys current vm to allow ssh directly into it and not using ssh vagrant all the time
 

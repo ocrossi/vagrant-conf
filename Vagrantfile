@@ -8,4 +8,5 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.synced_folder "~/vagrantShared", "/vagrantShared"
+  config.vm.provision "shell", path: "setup.sh"
 end

@@ -2,6 +2,11 @@
 
 Vagrant and VirtualBox installed
 
+plugin vagrant vagrant-disksize : do
+                                    vagrant plugin install vagrant-disksize
+
+
+# to script
 A directory ~/vagrantShared 
 populated with 1 password file and one pubkey to setup ssh connection without vagrant
 

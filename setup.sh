@@ -4,7 +4,7 @@ username=rossi
 
 #global installs
 apt update  && apt upgrade -y
-apt install -y git fuse gcc tldr fzf make cmake curl zsh
+apt install -y git fuse gcc tldr fzf make cmake curl zsh tmux man
 # devops stuff, might wanna change settings for more power in vrutalbox UI
 # apt install -y vagrant virtualbox
 # check docker install : https://docs.docker.com/engine/install/ubuntu/

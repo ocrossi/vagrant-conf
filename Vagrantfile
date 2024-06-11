@@ -1,7 +1,13 @@
+test1 = ENV['VAGRANT_GUI']
+test2
+
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-22.04"
+  config.vm.box = "generic/debian12"
+
 
   config.vm.provider "virtualbox" do |vb|
+    vb.gui = ENV['GUI_RES']
+    vb.name = ENV['VM_NAME']
     vb.memory = 8096
     vb.cpus = 4
     vb.linked_clone = true

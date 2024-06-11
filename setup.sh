@@ -6,6 +6,7 @@ username=rossi
 apt update  && apt upgrade -y
 apt install -y git fuse gcc tldr fzf make cmake curl zsh tmux man
 # devops stuff, might wanna change settings for more power in vrutalbox UI
+# for inception
 # apt install -y vagrant virtualbox
 # check docker install : https://docs.docker.com/engine/install/ubuntu/
 
@@ -42,6 +43,9 @@ mkdir -p "/home/$(whoami)/.ssh" &&
 
 usermod --expiredate 1 vagrant
 service sshd restart
+
+# generate ssh key
+echo -e "\n" | ssh-keygen -t rsa -N ""
 
 # delete part
 # rm /vagrantShared/id_rsa.pub

@@ -1,6 +1,3 @@
-test1 = ENV['VAGRANT_GUI']
-test2
-
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/debian12"
 

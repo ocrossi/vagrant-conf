@@ -1,25 +1,28 @@
 #!/bin/bash
 
 
-if [ -d $HOME/ft_ping/ ]; then
-  echo "Directory ft_ping exists."
-fi
+set -euo pipefail
 
-
+# vagrant plugin dependencies
+# vagrant plugin install vagrant-disksize
 
 if [ ! -d "$HOME/vagrantShared" ]
 then
+ 	echo "Directory vagrantShared exists."
 	mkdir $HOME/vagrantShared/
 else
 	echo "vagrantShared directory already exists in user's home folder"
 	echo "This script will override"
 	echo "~/vagrantShared/id_rsa.pub"
 	echo "~/vagrantShared/passwd_file"
-	echo 
+	echo ""
 fi
 
 echo "enter username"
 read uname
+
+pass=""
+confirm=" "
 
 while [ $pass != $confirm ]
 do
@@ -51,6 +54,6 @@ echo "enter vm vame"
 read vm_name
 
 echo "$uname:$pass" > ~/vagrantShared/passwd_file
-cp ~/.ssh/id_rsa.pub ~/vagrantShared/id_rsa.pub
+cp $HOME/.ssh/id_rsa.pub ~/vagrantShared/id_rsa.pub
 
-GUI_TOGGLE=$guires VM_NAME=$vm_name vagrant up
+GUI_TOGGLE=$guires VM_NAME=$vm_name USERNAME=$uname vagrant up

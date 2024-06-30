@@ -1,6 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/debian12"
-
+  config.vm.box = "bento/ubuntu-22.04"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = ENV['GUI_RES']
@@ -9,7 +8,15 @@ Vagrant.configure("2") do |config|
     vb.cpus = 4
     vb.linked_clone = true
   end
-  config.disksize.size = '50GB'
+  config.disksize.size = '80GB'
   config.vm.synced_folder "~/vagrantShared", "/vagrantShared"
-  config.vm.provision "shell", path: "setup.sh"
+  
+  config.vm.provision "shell",
+	path: "setup.sh",
+	args: ENV['USERNAME']
+  
+  
+  config.vm.provision "shell",
+	reboot: true,
+	inline: "echo Rebooting..."
 end
